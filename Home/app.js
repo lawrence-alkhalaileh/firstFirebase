@@ -15,14 +15,7 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCg3q4eZBmdN21xMdD8MN3XmGSFtvVfyuU",
-  authDomain: "first-authentication-app-43500.firebaseapp.com",
-  projectId: "first-authentication-app-43500",
-  storageBucket: "first-authentication-app-43500.firebasestorage.app",
-  messagingSenderId: "731481067552",
-  appId: "1:731481067552:web:b9e51b87ccb2e455f9ac45",
-};
+import { firebaseConfig } from "../config";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

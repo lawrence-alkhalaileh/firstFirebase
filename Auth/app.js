@@ -4,17 +4,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCg3q4eZBmdN21xMdD8MN3XmGSFtvVfyuU",
-  authDomain: "first-authentication-app-43500.firebaseapp.com",
-  projectId: "first-authentication-app-43500",
-  storageBucket: "first-authentication-app-43500.firebasestorage.app",
-  messagingSenderId: "731481067552",
-  appId: "1:731481067552:web:b9e51b87ccb2e455f9ac45",
-};
+import { firebaseConfig } from "../config";
 
 const app = initializeApp(firebaseConfig);
 
@@ -22,7 +14,6 @@ const auth = getAuth(app);
 
 const userEmail = document.querySelector("#userEmail");
 const userPassword = document.querySelector("#userPassword");
-const authForm = document.querySelector("#authForm");
 const signUpButton = document.querySelector("#signUpButton");
 const signInButton = document.querySelector("#signInButton");
 
@@ -50,11 +41,7 @@ const userSignIn = async () => {
   const signInPassword = userPassword.value;
 
   try {
-    await signInWithEmailAndPassword(
-      auth,
-      signInEmail,
-      signInPassword
-    );
+    await signInWithEmailAndPassword(auth, signInEmail, signInPassword);
     // const user = userCredential.user;
   } catch (err) {
     const errorCode = err.code;
@@ -75,4 +62,3 @@ checkAuthState();
 
 signUpButton.addEventListener("click", userSignUp);
 signInButton.addEventListener("click", userSignIn);
-// signOutButton.addEventListener("click", userSignOut);
