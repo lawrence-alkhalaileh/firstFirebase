@@ -4,9 +4,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
-import { firebaseConfig } from "../config";
+import { firebaseConfig } from "../config.js";
 
 const app = initializeApp(firebaseConfig);
 
@@ -14,6 +15,7 @@ const auth = getAuth(app);
 
 const userEmail = document.querySelector("#userEmail");
 const userPassword = document.querySelector("#userPassword");
+const authForm = document.querySelector("#authForm");
 const signUpButton = document.querySelector("#signUpButton");
 const signInButton = document.querySelector("#signInButton");
 
@@ -62,3 +64,4 @@ checkAuthState();
 
 signUpButton.addEventListener("click", userSignUp);
 signInButton.addEventListener("click", userSignIn);
+// signOutButton.addEventListener("click", userSignOut);
